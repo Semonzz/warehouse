@@ -15,7 +15,7 @@ abstract class Worker {
         this.id = id;
         this.name = name;
         this.warehouse = warehouse;
-        this.hours  = this.rand.nextInt(1, 12);
+        this.hours  = this.rand.nextInt(1, 10);
     }
 
     protected void checkTimeWork(){
