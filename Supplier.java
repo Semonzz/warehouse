@@ -8,6 +8,7 @@ public class Supplier {
     }
 
     public Map<Product, Integer> deliver(Map<Product, Integer> requested) {
+        System.out.println("Supplier replenishes stocks....");
         return new HashMap<>(requested);
     }
 }

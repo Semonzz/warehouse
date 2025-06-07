@@ -7,21 +7,24 @@ public class Order {
     private Warehouse warehouse;
     private String count;
 
-    public Order(User user, Map<Product, Integer> products, Warehouse warehouse, String count) {
+    public Order(User user, Map<Product, Integer> products, String count) {
         this.products = products;
         this.user = user;
-        this.warehouse = warehouse;
         this.count = count;
-        this.warehouse.addOrder(this);
-        doingOrder();
+        //doingOrder();
     }
 
-    private void doingOrder() {
+    public void doingOrder() {
+        System.out.println("Order created!");
         if (this.count.equals("last")) {
             while (warehouse.getQueueSize() > 0) {
                 this.warehouse.processing();
             }
         }
+    }
+
+    public void setWarehouse(Warehouse other){
+        this.warehouse = other;
     }
 
     public Map<Product, Integer> getProducts(){
@@ -30,5 +33,9 @@ public class Order {
 
     public User getUser(){
         return this.user;
+    }
+
+    public String getCount(){
+        return count;
     }
 }

@@ -11,11 +11,16 @@ abstract class Worker {
     private boolean isBusy;
     protected double inWork = 0;
 
-    public Worker(int id, String name, Warehouse warehouse){
+
+
+    public Worker(int id, String name){
         this.id = id;
         this.name = name;
-        this.warehouse = warehouse;
         this.hours  = this.rand.nextInt(1, 10);
+    }
+
+    public void setWarehouse(Warehouse other){
+        this.warehouse = other;
     }
 
     protected void checkTimeWork(){

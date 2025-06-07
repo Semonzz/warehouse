@@ -40,16 +40,30 @@ public class Warehouse {
         }
     }
 
+    public void addCourier(Courier other){
+        other.setWarehouse(this);
+        this.couriers.add(other);
+    }
+
+    public void addStorekeeper(Storekeeper other){
+        other.setWarehouse(this);
+        this.storekeepers.add(other);
+    }
+
+    public void addOrder(Order other){
+        other.setWarehouse(this);
+        this.orderQueue.add(other);
+        if(other.getCount().equals("last")){
+            other.doingOrder();
+        }
+    }
+
     public Map<Product, Integer> getStocks() {
         return stocks;
     }
 
     public Point getLocation(){
         return location;
-    }
-
-    public void addOrder(Order newOrder){
-        this.orderQueue.add(newOrder);
     }
 
     public int getQueueSize(){

@@ -2,12 +2,13 @@ import java.util.Map;
 
 public class Storekeeper extends Worker {
 
-    public Storekeeper(int id, String name, Warehouse warehouse){
-        super(id, name, warehouse);
-        this.warehouse.storekeepers.add(this);
+    public Storekeeper(int id, String name){
+        super(id, name);
+
     }
 
     public void prepareProduct(Map<Product, Integer> products, Map<Product, Integer> stocks){
+        System.out.println("Storekeeper starts preparing supplies....");
         double tmpTime = 0;
 
         for (var orderEntry : products.entrySet()) {
